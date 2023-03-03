@@ -27,15 +27,4 @@ public class SearchPage extends PageObject {
                 .findFirst().orElse(null).click();
 
     }
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
 
 public class HomePage extends PageObject {
 
@@ -16,17 +15,17 @@ public class HomePage extends PageObject {
 
     @FindBy(css = ".noo-search")
     private WebElement searchIcon;
-
     @FindBy(name = "s")
     private WebElement searchType;
-
     @FindBy(xpath = "//div[@id='slide-6-layer-9']")
     private WebElement shopNowLayer;
-
+    @FindBy(xpath = "//a[normalize-space()='Dismiss']")
+    private WebElement dismissLink;
 
     public void goToHomepage() {
         driver.get("https://shop.demoqa.com/");
         waitForWebElementToAppear(shopNowLayer);
+        dismissLink.click();
     }
 
     public boolean verifyTitle(String title) {
@@ -37,21 +36,4 @@ public class HomePage extends PageObject {
         searchIcon.click();
         searchType.sendKeys(searchedWord, Keys.ENTER);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
