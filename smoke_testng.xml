@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test Suite">
+    <listeners>
+        <listener class-name="test_components.Listeners"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="Smoke Test">
+        <classes>
+            <class name="tests.smoke_test.E2ETest">
+                <methods>
+                    <include name="smokeTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
