@@ -9,6 +9,8 @@ ToolsQA Demo Site is a dummy website for testing purposes. Contains all basic fl
 
 Users can search for wanted product(s), choose a size, color and quantity and go to checkout. Before finishing an order, a user needs to fill a billing form with personal details and shipping address. User does not need to create an account and login unless they want to check their order.
 
+Test case for smoke test: [Smoke Test](smoke_test.ods)
+
 
 ## Test suite
 Test automation suite for "ToolsQA" e-commerce web application written with Selenium TestNG framework in Java using Maven following POM pattern.
