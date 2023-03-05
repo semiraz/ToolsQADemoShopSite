@@ -3,8 +3,10 @@ package test_components;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -21,13 +23,21 @@ public class BaseTest {
         properties.load(fis);
 
         String browserName = properties.getProperty("browser");
-        if (browserName.equalsIgnoreCase("chrome")) {
+        if (browserName.contains("chrome")) {
+            ChromeOptions options = new ChromeOptions();
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-        } else if (browserName.equalsIgnoreCase("firefox")) {
+            if (browserName.contains("headless")) {
+                options.addArguments("headless");
+            }
+            driver = new ChromeDriver(options);
+        } else if (browserName.contains("firefox")) {
 //            System.setProperty("webdriver.gecko.driver", "geckodriver");
+            FirefoxOptions options = new FirefoxOptions();
             WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
+            if (browserName.contains("headless")) {
+                options.addArguments("headless");
+            }
+            driver = new FirefoxDriver(options);
         } else if (browserName.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
