@@ -32,13 +32,20 @@ Ubuntu 22.04.1 LTS
 
 ## Deployment
 
+To run test:
+
+```mvn test```
+
 To run smoke_testng.xml(generate custom report) :
 
 ```mvn test -PSmoke```
 
-To run test:
+To run test in headless mode:
 
-```mvn test```
+```mvn test -Dbrowser=chromeheadless```
+
+
+
 
 
 ## Status
